@@ -35,11 +35,11 @@ function fetchBreedList() {
 }
 //Empty string (No Filter in Select in HTML) equals falsey, so when passed in as filter, !filter = truthy
 //and will run the full list of breeds.
-function renderBreedList(json, filter) {
+function renderBreedList(json, selectedLetter) {
   const ul = document.getElementById("dog-breeds");
   ul.innerHTML = "";
   Object.keys(json).forEach(breed => {
-    if (!filter || breed.startsWith(filter)) {
+    if (!selectedLetter || breed.startsWith(selectedLetter)) {
       const listItem = document.createElement("li");
       listItem.innerHTML = `<h3>${breed}</h3>`;
       listItem.addEventListener("click", onClickChangeColor);
